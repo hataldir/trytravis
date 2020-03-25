@@ -8,14 +8,14 @@ provider "google" {
   project = var.project
 
   region = var.region
-  zone         = var.zone
+  zone   = var.zone
 
 }
 
 # VM reddit-app
 resource "google_compute_instance" "app" {
-#  count = var.app-count
-  name         = "reddit-app"
+  count        = var.app-count
+  name         = "reddit-app-${count.index}"
   machine_type = "g1-small"
   tags         = ["reddit-app"]
   boot_disk {
@@ -29,9 +29,9 @@ resource "google_compute_instance" "app" {
     access_config {}
   }
 
-#  metadata = {
-#    ssh-keys = "appuser:${file(var.public_key_path)}"
-#  }
+  #  metadata = {
+  #    ssh-keys = "appuser:${file(var.public_key_path)}"
+  #  }
 
   metadata = {
     ssh-keys = "appuser:${file(var.public_key_path)}\nappuser1:${file(var.public_key_path)}\nappuser2:${file(var.public_key_path)}"
