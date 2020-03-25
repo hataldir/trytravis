@@ -1,6 +1,6 @@
 variable project {
   description = "Project ID"
-  default = "infra-271003"
+  default     = "infra-271003"
 
 }
 variable region {
@@ -14,4 +14,18 @@ variable public_key_path {
 }
 variable disk_image {
   description = "Disk image"
+}
+
+variable private_key_path {
+  description = "Path to the private key"
+}
+
+variable zone {
+  description = "Zone"
+  default     = "europe-west1-b"
+}
+
+variable app-count {
+  description = "Number of apps"
+  default     = 1
 }

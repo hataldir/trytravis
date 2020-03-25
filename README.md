@@ -2,6 +2,30 @@
 hataldir Infra repository
 
 
+Домашнее задание № 6
+
+Установлен terraform, удален ключ appuser из метаданных проекта
+Создан конфигурационный файл main.tf для разворачивание машины reddit-app, аналогичной предыдущему ДЗ.
+Часть параметров из этого файла вынесена в переменные в файлах variables.tf и terraform.tfvars
+
+Дополнительное задание 1:
+
+Добавлены ключи для пользователей appuser1, appuser2 через terraform и appuser-web через веб-интерфейс. Проблемы:
+ - ключи appuser, appuser1, appuser2 должный идти в одной строек, разделенные \n
+ - ключи, добавляемые через terraform не видны в веб-интерфейсе
+
+Дополнительное задание 2:
+
+С помощью terraform создан балансировщик нагрузки, состоящий из следующих ресурсов:
+ - global forwarding rule
+ - target http proxy
+ - backend service
+ - instance group
+ - healthcheck
+ - url-map
+ - переменная с его адресом
+
+
 Домашнее задание № 5
 
 Установлены Packer, ADC
