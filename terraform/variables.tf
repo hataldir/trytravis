@@ -1,0 +1,17 @@
+variable project {
+  description = "Project ID"
+  default = "infra-271003"
+
+}
+variable region {
+  description = "Region"
+  # Значение по умолчанию
+  default = "europe-west-1"
+}
+variable public_key_path {
+  # Описание переменной
+  description = "Path to the public key used for ssh access"
+}
+variable disk_image {
+  description = "Disk image"
+}
