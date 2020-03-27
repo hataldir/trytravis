@@ -10,7 +10,7 @@ variable zone {
 
 variable db_disk_image {
   description = "Disk image for reddit db"
-  default     = "reddit-base"
+  default     = "reddit-db-base"
 }
 
 variable project {
