@@ -11,11 +11,26 @@ resource "google_compute_instance" "db" {
   }
   network_interface {
     network = "default"
-    access_config {}
+    access_config {
+      nat_ip = google_compute_address.db_ip.address
+    }
   }
   metadata = {
     ssh-keys = "appuser:${file(var.public_key_path)}"
   }
+  connection {
+    type        = "ssh"
+    host        = self.network_interface[0].access_config[0].nat_ip
+    user        = "appuser"
+    agent       = false
+    private_key = file(var.private_key_path)
+  }
+
+  # Deploy app
+  provisioner "remote-exec" {
+    script = "${path.module}/change.sh"
+  }
+
 }
 
 resource "google_compute_firewall" "firewall_mongo" {
@@ -26,5 +41,12 @@ resource "google_compute_firewall" "firewall_mongo" {
     ports    = ["27017"]
   }
   target_tags = ["reddit-db"]
-  source_tags = ["reddit-app"]
+#  source_tags = ["reddit-app"]
+
+
+}
+
+
+resource "google_compute_address" "db_ip" {
+  name = "reddit-db-ip"
 }

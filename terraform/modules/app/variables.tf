@@ -17,3 +17,10 @@ variable project {
   default     = "infra-271003"
 
 }
+
+variable private_key_path {
+  description = "Path to the private key"
+}
+
+variable db_ip_address {
+}

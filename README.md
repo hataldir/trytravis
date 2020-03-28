@@ -18,8 +18,7 @@ hataldir Infra repository
 
 Дополнительное задание 2
 
-
-
+В модуль app добавлены provisioners для деплоя приложения. Адрес виртуалки db передается в виртуалку app и добавляется в puma.service.
 
 
 
