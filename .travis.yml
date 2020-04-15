@@ -4,6 +4,14 @@ language: bash
 before_install:
 - curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-02/run.sh |
   bash
+
+- packer validate packer/*
+- terrafrom validate terraform/stage
+- terrafrom validate terraform/prod
+- tflint terraform/stage
+- tflint validate terraform/prod
+- cd ansible; ansible-lint --exclude roles/jdauphant.nginx
+
 notifications:
   slack:
     rooms:

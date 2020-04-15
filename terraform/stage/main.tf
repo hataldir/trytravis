@@ -44,5 +44,5 @@ data "template_file" "inventory" {
 
 resource "local_file" "save_inventory" {
   content  = "${data.template_file.inventory.rendered}"
-  filename = "../../ansible/inventory.yml"
+  filename = "../../ansible/environments/stage/inventory.yml"
 }
