@@ -18,7 +18,7 @@ hataldir Infra repository
 Дополнительное задание 2
 
 Установлены tflint, ansible-lint. Добавлены проверки packer, terraform, ansible в .travis.yml. Добавлен badge TravisCI в readme.
-
+Установлен trytravis, создан для него репозиторий в github. На нем проведена отладка работы TravisCi.
 
 
 Домашнее задание № 9
